@@ -1,8 +1,5 @@
-=======
-OMEGA
-=======
-
-|docs| 
+### OMEGA
+---------
 
 This is OMEGA (Observing the Morphological Evolution of GAlaxies), 
 a project which aims at studying the morphological evolution of galaxies through time. 
@@ -17,21 +14,20 @@ strategy of the Cosmic Evolution Early Release Science survey (CEERS) was reprod
 
 The simulated images are reduced with the standard pipeline, adapted for the case of interest.
 
+<br />
 
-Licensing
+## Licensing
 ---------
 `OMEGA` scripts are distributed under GNU GPL, either version 3 of the License,
 or (at your option) any later version. See the file LICENSE.txt for details.
 
-Authors
+<br />
+
+## Authors
 -------
 
 Webpage: 
 
 Author: Luca Costantin <lcostantin@cab.inta-csic.es>
       
-Collaborators: Pablo G. Pérez González <pgperez@cab.inta-csic.es>, Marc Huertas Company <>, Jesus Vega <>
-
-.. |docs| image:: https://readthedocs.org/projects/omega/badge/?version=latest
-   :target: https://readthedocs.org/projects/omega/?badge=latest
-   :alt: omega's Documentation Status
+Collaborators: Pablo G. Pérez González <pgperez@cab.inta-csic.es>, Marc Huertas Company <mhuertas@iac.es>, Jesus Vega <vegaf@sas.upenn.edu>

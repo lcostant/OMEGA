@@ -1,8 +1,8 @@
-# ![](https://drive.google.com/uc?export=view&id=1AR_Ldcudggpqzz7yYLyvWdgp-p54UjX3) ΩMEGA
+# ![](https://drive.google.com/uc?export=view&id=1hvEOXvU8-yjt72G6JP4JBnBgHrthcLE5)
+
+This is **OMEGA** (**O**bserving the **M**orphological **E**volution of **GA**laxies), a project which aims at studying the morphological evolution of galaxies through time. 
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lcostant/OMEGA?style=plastic)
-
-This is `OMEGA` (**O**bserving the **M**orphological **E**volution of **GA**laxies), a project which aims at studying the morphological evolution of galaxies through time. 
 
 ## Project description
 

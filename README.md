@@ -19,7 +19,7 @@ The simulated images are reduced with the standard pipeline, adapted for the cas
 *Collaborators*: Pablo G. Pérez González, Marc Huertas Company, Jesús Vega Ferrero
 
 
-#### Licensing
+## Licensing
 
 **ΩMEGA** scripts are distributed under GNU GPLv3.
 

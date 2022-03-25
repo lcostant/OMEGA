@@ -7,8 +7,5 @@ Furthermore, this data release provides a resolved version of TNG50 galaxies at 
 <<<<<<< HEAD
 
 The full set of synthetic images of high-redshift galaxies in TNG50 can be download at LINK (XX TB of disk space). One example galaxy is also provided in the main repository and can be used along the script in this directory, with some minor changes in the code. A detailed description of the dataset can be found in Costantin+2022, to which citation is requested if you use these products.
-=======
-=======
+
 The full set of synthetic images of high-redshift galaxies in TNG50 can be download at LINK (XX TB of disk space). A detailed description of the dataset can be found in Costantin+2022, to which citation is requested if you use these products.
->>>>>>> e3e95b6 (update README RGB_galaxies)
->>>>>>> ba15dbf (update ## RGB images of TNG50 galaxies)

@@ -17,9 +17,11 @@ The simulated images are reduced with the [official pipeline](https://github.com
 ## Data releases
 
 TNG50 data release is available: 
-![Data Release](https://img.shields.io/badge/version-v1.0-green)
+
+![https://img.shields.io/badge/version-v1.0-green](https://github.com/spacetelescope/jwst)
 
 CEERS data release is available: 
+
 ![Data Release](https://img.shields.io/badge/version-v0.1-orange)
 
 ## Authors

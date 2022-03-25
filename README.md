@@ -6,7 +6,7 @@ This is **ΩMEGA** (**Ω**rigin of the **M**orphological **E**volution of **GA**
 
 ## Project description
 
-This project provides a catalog of high-redhift galaxies taken from the Illustris TNG50 suite of cosmological simulations ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan er al 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). For all galaxies at redshift $3<z<6$ and more massive than $10^9$ solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
+This project provides a catalog of high-redhift galaxies taken from the Illustris TNG50 suite of cosmological simulations ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan er al 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). For all galaxies at redshift 3<z<6 and more massive than log(M)>9 solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
 
 Every image is created starting from the star and gas particles in TNG50, applying radiative transfer calculations using SKIRT v9 ([Camps et al 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
 

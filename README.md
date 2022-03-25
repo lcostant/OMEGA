@@ -16,9 +16,11 @@ The simulated images are reduced with the [official pipeline](https://github.com
 
 ## Data releases
 
-TNG50 data release (v1.0) is available: ![GitHub last commit](https://img.shields.io/badge/version-v1.0-green)
+TNG50 data release is available: 
+![Data Release](https://img.shields.io/badge/version-v1.0-green)
 
-CEERS data release (v0.1) is available: ![GitHub last commit](https://img.shields.io/badge/version-v0.1-orange)
+CEERS data release is available: 
+![Data Release](https://img.shields.io/badge/version-v0.1-orange)
 
 ## Authors
 

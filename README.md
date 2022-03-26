@@ -30,6 +30,8 @@ CEERS data release is available:
 
 Costantin et al. 2022, *title*, ApJ, in preparation
 
+Vega-Ferrero et al. 2022, *title*, ApJ, in preparation
+
 ## Authors
 
 *Author*: **Luca Costantin** (<lcostantin@cab.inta-csic.es>)

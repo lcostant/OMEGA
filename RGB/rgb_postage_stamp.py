@@ -43,8 +43,8 @@ def check_directory(path):
 def convolve_psf(image,filter):
 	'''Convolve for JWST NIRCam PSF.
 	'''
-	SW_filters = {'F070W', 'F090W', 'F115W', '140M', 'F150W', 'F162M', 'F164N', 'F182M', 'F187N', 'F200W', 'F210M', 'F212N'}
-	LW_filters = {'F250M', 'F277W', 'F300M', 'F323N', 'F335M', 'F356W', 'F360M', 'F405N', 'F410M', 'F430M', 'F444W', 'F460M', 'F466N', 'F470N', 'F480M'}
+	SW_filters = {'F070W', 'F090W', 'F115W', '140M', 'F150W', 'F182M', 'F187N', 'F200W', 'F210M', 'F212N'}
+	LW_filters = {'F250M', 'F277W', 'F300M', 'F335M', 'F356W', 'F360M', 'F410M', 'F430M', 'F444W', 'F460M', 'F480M'}
 
 	if filter in SW_filters:
 		psf_file = f'/NIRCam_PSF/nircam_nrcb1_{filter.lower()}_clear_fovp401_samp1_predicted_realization0.fits'
@@ -60,10 +60,16 @@ def convolve_psf(image,filter):
 
 	return convolved_image
 
-def make_plot(image_R, image_G, image_B, wcs):
+def make_plot(image_R,image_G,image_B,wcs):
 	'''Combine the three images.
 	'''
 	abs_path = os.path.abspath(os.getcwd())
+
+# Convolve for JWST NIRCam PSF
+	if (args.psf == 1):
+		image_R = convolve_psf(image=image_R,filter=args.f1)
+		image_G = convolve_psf(image=image_G,filter=args.f2)
+		image_B = convolve_psf(image=image_B,filter=args.f3)
 
 	fig = plt.figure(figsize=(9,9))
 
@@ -93,7 +99,7 @@ def make_plot(image_R, image_G, image_B, wcs):
 
 	plt.savefig(f'{abs_path}/TEST_RGB.png',bbox_inches='tight')
 	
-def filter_selection(i_a, redshift, filter):
+def filter_selection(i_a,redshift,filter):
 	'''Select the filters for RGB colors and match the pixel scale.
 	'''
 	abs_path = os.path.abspath(os.getcwd())
@@ -120,25 +126,22 @@ if __name__ == "__main__":
 
 	parser = argparse.ArgumentParser(description='Create RGB images of noiseless TNG50 galaxies')
 	parser.add_argument("--id", help='"ID of the galaxy (default: 0)"', nargs='?', type=int, choices=range(0,999999), const=0, default=0)
-	parser.add_argument("--f1", help='"Filter for R image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
-																										'F162M', 'F164N', 'F182M', 'F187N', 'F200W', 
-																										'F210M', 'F212N', 'F250M', 'F277W', 'F300M', 
-																										'F323N', 'F335M', 'F356W', 'F360M', 'F405N', 
-																										'F410M', 'F430M', 'F444W', 'F460M', 'F466N', 
-																										'F470N', 'F480M'), const='F090W', default='F200W')
-	parser.add_argument("--f2", help='"Filter for G image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
-																										'F162M', 'F164N', 'F182M', 'F187N', 'F200W', 
-																										'F210M', 'F212N', 'F250M', 'F277W', 'F300M', 
-																										'F323N', 'F335M', 'F356W', 'F360M', 'F405N', 
-																										'F410M', 'F430M', 'F444W', 'F460M', 'F466N', 
-																										'F470N', 'F480M'), const='F115W', default='F356W')
-	parser.add_argument("--f3", help='"Filter for B image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
-																										'F162M', 'F164N', 'F182M', 'F187N', 'F200W', 
-																										'F210M', 'F212N', 'F250M', 'F277W', 'F300M', 
-																										'F323N', 'F335M', 'F356W', 'F360M', 'F405N', 
-																										'F410M', 'F430M', 'F444W', 'F460M', 'F466N', 
-																										'F470N', 'F480M'), const='F200W', default='F444W')
-	parser.add_argument("--psf", help='"Convolve for JWST PSF (default: 0)"', nargs='?', type=int, choices=(0,1), const=0, default=0)
+	parser.add_argument("--f1", help='"Filter for R-band image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
+																										'F182M', 'F187N', 'F200W', 'F210M', 'F212N', 
+																										'F250M', 'F277W', 'F300M', 'F335M', 'F356W', 
+																										'F360M', 'F410M', 'F430M', 'F444W', 'F460M', 
+																										'F480M'), const='F090W', default='F090W')
+	parser.add_argument("--f2", help='"Filter for G-band image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
+																										'F182M', 'F187N', 'F200W', 'F210M', 'F212N', 
+																										'F250M', 'F277W', 'F300M', 'F335M', 'F356W', 
+																										'F360M', 'F410M', 'F430M', 'F444W', 'F460M', 
+																										'F480M'), const='F115W', default='F115W')
+	parser.add_argument("--f3", help='"Filter for B-band image (default: 0)"', nargs='?', type=str, choices=('F070W', 'F090W', 'F115W', 'F140M', 'F150W', 
+																										'F182M', 'F187N', 'F200W', 'F210M', 'F212N', 
+																										'F250M', 'F277W', 'F300M', 'F335M', 'F356W', 
+																										'F360M', 'F410M', 'F430M', 'F444W', 'F460M', 
+																										'F480M'), const='F200W', default='F200W')
+	parser.add_argument("--psf", help='"Convolve for JWST NIRCam PSF (default: 0)"', nargs='?', type=int, choices=(0,1), const=0, default=0)
 	parser.add_argument("--overwrite", help='"Overwrite previous results (default: 0)"', nargs='?', type=int, choices=(0,1), const=0, default=0)
 	args = parser.parse_args()
 

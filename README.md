@@ -2,7 +2,7 @@
 
 This is **ΩMEGA** (**Ω**rigin of the **M**orphological **E**volution of **GA**laxies), a project that aims at studying the morphological evolution of galaxies through time. 
 
-The project description can be found in **Costantin et al. 2022**, to which citation is requested if you use these results.
+The project description can be found in **Costantin et al. (in prep))**, to which citation is requested if you use these results.
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/lcostant/OMEGA?style=plastic)
 
@@ -28,9 +28,9 @@ CEERS data release is available:
 
 ## Publications
 
-Costantin et al. 2022, *title*, ApJ, in preparation
+Costantin et al. 2022, *in preparation*
 
-Vega-Ferrero et al. 2022, *title*, ApJ, in preparation
+Vega-Ferrero et al. 2022, *in preparation*
 
 ## Authors
 

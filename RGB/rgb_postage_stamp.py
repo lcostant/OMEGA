@@ -97,7 +97,7 @@ def make_plot(image_R,image_G,image_B,wcs):
 	plt.ylabel('Declination')
 	plt.title(f'galaxy ID {args.id}')
 
-	plt.savefig(f'{abs_path}/TEST_RGB.png',bbox_inches='tight')
+	plt.savefig(f'{abs_path}/{args.id}_rgb.png',bbox_inches='tight')
 	
 def filter_selection(i_a,redshift,filter):
 	'''Select the filters for RGB colors and match the pixel scale.

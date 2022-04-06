@@ -26,7 +26,7 @@ CEERS data release is available:
 
 ![Data Release](https://img.shields.io/badge/version-v0.1-orange)
 
-For any information contact: L. Costantin (<lcostantin@cab.inta-csic.es>)
+For any information contact: Luca Costantin (<lcostantin@cab.inta-csic.es>)
 
 ## Publications
 

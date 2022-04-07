@@ -41,7 +41,6 @@ Luca Costantin: lcostantin@cab.inta-csic.es
 
 **ΩMEGA** scripts are distributed under GNU GPLv3.
 
-## References
 
 [^1]: [Pillepich et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
 [^2]: [Dylan et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)

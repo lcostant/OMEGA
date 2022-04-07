@@ -8,21 +8,15 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 TNG50 data release (v1.0) is available: 
 
-**NIRCam SW**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
+![Download](https://img.shields.io/badge/version-v1.0-green)
 
-Spatial resolution: 0.031 arcsec/px
+* **NIRCam SW**, with spatial resolution: 0.031 arcsec/px
 
-**NIRCam LW**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
+* **NIRCam LW**, with spatial resolution: 0.063 arcsec/px
 
-Spatial resolution: 0.031 arcsec/px
+* **MIRI**, with spatial resolution: 0.110 arcsec/px
 
-**MIRI**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
-
-Spatial resolution: 0.031 arcsec/px
-
-**TNG50**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
-
-Spatial resolution: 0.031 arcsec/px
+* **TNG50**, NIRCam and MIRI imaging with spatial resolution: 0.010 arcsec/px
 
 ## Additional information
 
@@ -30,13 +24,21 @@ Spatial resolution: 0.031 arcsec/px
 
 All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
 
+**Number of galaxies**:
+
+* z=3: 760 galaxies
+
+* z=4: 326 galaxies
+
+* z=5: 113 galaxies
+
+* z=6: 39 galaxies
+
 **Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
 
 **Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr).
 
 **IMF** : [Chabrier (2003)](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract).
-
-**Number of galaxies**: 760 (z=3), 326 (z=4), 113 (z=5), 39 (z=6)
 ## Publications
 
 Costantin L. et al. 2022, *in preparation*

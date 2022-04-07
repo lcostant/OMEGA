@@ -10,7 +10,7 @@ The entire data release is made availble to the community, while the example gal
 
 A detailed description of the release can be found in the reference paper (Costantin et al. 2022, in prep.), to which citation is requested if you use this data.
  
-## Data releases
+### Data releases
 
 TNG50 data release is available: 
 
@@ -24,7 +24,7 @@ TNG50 data release is available:
 
 * **TNG50**, NIRCam and MIRI imaging with spatial resolution: 0.010 arcsec/px
 
-## Additional information
+### Additional information
 
 * **TNG50 version**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 
 
@@ -45,19 +45,19 @@ TNG50 data release is available:
 * z=5: 113 galaxies
 
 * z=6: 39 galaxies
-## Publications
+### References
 
 Costantin L. et al. 2022, *in preparation*
 
 Vega-Ferrero J. et al. 2022, *in preparation*
 
-## Authors
+### Authors
 
 *Author*: **Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
 
 *Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  
-## Contact
+### Contact
 
 **Luca Costantin**: lcostantin@cab-csic-inta.es
 

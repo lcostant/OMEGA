@@ -26,8 +26,7 @@ CEERS data release is available:
 
 ![Data Release](https://img.shields.io/badge/version-v0.1-orange)
 
-For any information contact: Luca Costantin (<lcostantin@cab.inta-csic.es>)
-
+For any information contact me.
 ## Publications
 
 Costantin L. et al. 2022, *in preparation*
@@ -40,6 +39,9 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 *Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
 
+## Contact
+
+**Luca Costantin**: lcostantin@cab-csic-inta.es
 
 ## Licensing
 

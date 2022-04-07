@@ -8,24 +8,35 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 TNG50 data release (v1.0) is available: 
 
-NIRCam SW: Describe
+**NIRCam SW**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
 
-NIRCam LW: Describe
+Spatial resolution: 0.031 arcsec/px
 
-MIRI: Describe
+**NIRCam LW**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
 
-TNG50: Describe
+Spatial resolution: 0.031 arcsec/px
+
+**MIRI**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
+
+Spatial resolution: 0.031 arcsec/px
+
+**TNG50**: ![Data Release](https://img.shields.io/badge/version-v1.0-green)
+
+Spatial resolution: 0.031 arcsec/px
 
 ## Additional information
 
-**TNG50 version**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
+**TNG50 version**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 
 
-**Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract))
+All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
 
-**Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr)
+**Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
 
-**IMF** : [Chabrier (2003)](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract)
+**Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr).
 
+**IMF** : [Chabrier (2003)](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract).
+
+**Number of galaxies**: 760 (z=3), 326 (z=4), 113 (z=5), 39 (z=6)
 ## Publications
 
 Costantin L. et al. 2022, *in preparation*

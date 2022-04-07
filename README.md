@@ -10,11 +10,7 @@ A detailed description of the data products can be found in **Costantin et al. (
 
 This project provides a catalog of high-redhift galaxies taken from the Illustris TNG50 suite of cosmological simulations[^1][^2]. For all galaxies at redshift 3<z<6 and more massive than log(M)>9 solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
 
-Every image is created starting from the star and gas particles in TNG50, applying radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
-
 The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulators for mimicking NIRCam and MIRI observations, respectively. In particular, this project provides NIRCam observations that mimic the observing strategy of the Cosmic Evolution Early Release Science survey ([CEERS](https://ceers.github.io); PI: S. Finkelstein).
-
-The simulated images are reduced with the [official pipeline](https://github.com/spacetelescope/jwst), adapted for the case of interest.
 
 ## Data releases
 
@@ -41,12 +37,13 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Contact
 
-**Luca Costantin**: lcostantin@cab-csic-inta.es
+Luca Costantin: lcostantin@cab-csic-inta.es
 
 ## Licensing
 
 **ΩMEGA** scripts are distributed under GNU GPLv3.
 
+## References
 
-[^1]: [Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553)
-[^2]: [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)
+[^1]: [Pillepich et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
+[^2]: [Dylan et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)

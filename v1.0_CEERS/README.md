@@ -111,7 +111,7 @@ Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  
 ## Contact
 
-**Luca Costantin**: lcostantin@cab-csic-inta.es
+Luca Costantin: lcostantin@cab.inta-csic.es
 
 ## Licensing
 

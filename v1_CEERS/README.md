@@ -47,7 +47,7 @@ CEERS-TNG50 data release is available:
 
 * **Stellar masses**: Larger than log(M)>9 solar masses
 
-* **FoV**: Larger than 4 arcsec^2
+* **FoV**: Larger than 4 squared arcsec
 
 * **Number of galaxies**:
 

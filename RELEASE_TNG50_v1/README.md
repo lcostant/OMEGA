@@ -31,6 +31,7 @@ TNG50 data release is available:
    All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
 
 * **Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
+   An example of the SKIRT setup is provided in SKIRT_config.ski
 
 * **Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr).
 

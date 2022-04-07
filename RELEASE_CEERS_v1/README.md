@@ -22,16 +22,23 @@ CEERS-TNG50 data release is available:
 
 ## Observational setup
 
-* **Instrument**  : NIRCam
-* **Mode**        : Imaging
-* **Simulator**   : MIRAGE v2.2.1
-* **Calibration** : jwst pipeline v1.4.6
-* **Target**      : TNG50-1 in CEERS Pointing 10
-* **Filters**     : F200W (SW, B1 detector)
-                    F356W (LW, B5 detector)
-* **Readout**     : MEDIUM8
-* **Dithers**     : 3 dithers (9 groups, 1 integration)
-* **APT**         : CEERS ERS 1345
+* **Instrument**: NIRCam
+
+* **Mode**: Imaging
+
+* **Simulator**: MIRAGE v2.2.1
+
+* **Calibration**: jwst pipeline v1.4.6
+
+* **Target**: TNG50-1 in CEERS Pointing 10
+
+* **Filters**: F200W (SW, B1 detector); F356W (LW, B5 detector)
+
+* **Readout**: MEDIUM8
+
+* **Dithers**: 3 dithers (9 groups, 1 integration)
+
+* **APT**: CEERS ERS 1345
 ## Simulated data set
 
 * **Available for**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 

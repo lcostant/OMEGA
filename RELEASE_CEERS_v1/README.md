@@ -51,13 +51,15 @@ CEERS-TNG50 data release is available:
 
 * **FoV**: Larger than 4 arcsec^2
 
-* **Number of galaxies**: 760 (z=3), 326 (z=4), 113 (z=5), 39 (z=6)
-   
-   20 configurations for each galaxy 
-   
-   5 inclinations: i=(0, 45, 90, 135, 180)
-   
-   4 azimuths: a=(0, 90, 180, 270)
+* **Number of galaxies**:
+
+   z=3: 760 galaxies
+
+   z=4: 326 galaxies
+
+   z=5: 113 galaxies
+
+   z=6: 39 galaxies
 
 * **Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract).   
    

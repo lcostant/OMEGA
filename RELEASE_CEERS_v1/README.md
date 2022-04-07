@@ -1,6 +1,6 @@
-## Simulated NIRCam imaging data at CEERS depth for massive TNG50 galaxies at 3<z<6
+# Simulated NIRCam imaging data at CEERS depth for massive TNG50 galaxies at 3<z<6
 
-### Description
+## Description
 
 This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than 10^9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
 
@@ -8,7 +8,7 @@ The mirage tool (v2.2.1) was used to simulated imaging data which have the NIRCa
 
 A detailed description of the release can be found in the reference paper (Costantin+2022, in prep.), to which citation is requested if you use this data. *More information about this data release and the noiseless synthetic images can be found at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)*.
 
-### Data releases
+## Data releases
 
 CEERS-TNG50 data release is available: 
 
@@ -18,7 +18,7 @@ CEERS-TNG50 data release is available:
 
 * **v1.1**, NIRCam F200W with spatial resolution of 0.015 arcsec/px and NIRCam F356W with spatial resolution of 0.030 arcsec/px
 
-### Observational setup
+## Observational setup
 
 * **Instrument**  : NIRCam
 * **Mode**        : Imaging
@@ -30,12 +30,16 @@ CEERS-TNG50 data release is available:
 * **Readout**     : MEDIUM8
 * **Dithers**     : 3 dithers (9 groups, 1 integration)
 * **APT**         : CEERS ERS 1345
-### Simulated data set
+## Simulated data set
 
 * **Available for**: TNG50-1
+
 * **Redshifts**: z=3, z=4, z=5, z=6
+
 * **Stellar masses**: Larger than 10^9 solar masses
+
 * **FoV**: Larger than 4 arcsec^2
+
 * **Number of galaxies**: 760 (z=3), 326 (z=4), 113 (z=5), 39 (z=6)
    
    20 configurations for each galaxy 
@@ -43,15 +47,19 @@ CEERS-TNG50 data release is available:
    5 inclinations: i=(0, 45, 90, 135, 180)
    
    4 azimuths: a=(0, 90, 180, 270)
+
 * **Modeling**: Radiative transfer calculations using SKIRT v9 (Camps et al. 2020).
    
    An example of the SKIRT setup is provided in SKIRT_config.ski
+
 * **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)
+
 * **Raw data**: 
 
    The raw data (_uncal) produced with mirage can be available upon request.
    
    The calibration data products (_rate, _cal, _i2d) can be available upon request.
+
 * **Extensions**: 
 
    [0] General header (info about data reduction strategy)
@@ -80,13 +88,13 @@ Costantin L. et al. 2022, *in preparation*
 
 Vega-Ferrero J. et al. 2022, *in preparation*
 
-### Authors
+## Authors
 
 *Author*: **Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
 
 *Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  
-### Contact
+## Contact
 
 **Luca Costantin**: lcostantin@cab-csic-inta.es
 

@@ -1,6 +1,6 @@
-# NIRCam and MIRI synthetic images of high-redshift galaxies from the IllustrisTNG50
+## NIRCam and MIRI synthetic images of high-redshift galaxies from the IllustrisTNG50
  
-## Description 
+### Description 
 
 This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code, including the effects of dust attenuation and scattering. 
 

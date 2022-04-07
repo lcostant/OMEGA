@@ -2,7 +2,7 @@
 
 ## Description
 
-This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than 10^9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
+This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
 
 The mirage tool (v2.2.1) was used to simulated imaging data which have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither - CEERS 10 pointing). Data simulated with mirage were run through the JWST calibration pipeline (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 
@@ -16,9 +16,9 @@ CEERS-TNG50 data release is available:
 
 ![Download](https://img.shields.io/badge/version-v1.0-green)
 
-* **v1.0**, NIRCam F200W with spatial resolution of 0.030 arcsec/px and NIRCam F356W with spatial resolution of 0.060 arcsec/px
+* **v1.0**: NIRCam F200W (0.030 arcsec/px), NIRCam F356W (0.060 arcsec/px)
 
-* **v1.1**, NIRCam F200W with spatial resolution of 0.015 arcsec/px and NIRCam F356W with spatial resolution of 0.030 arcsec/px
+* **v1.1**: NIRCam F200W (0.015 arcsec/px), NIRCam F356W (0.030 arcsec/px)
 
 ## Observational setup
 
@@ -34,11 +34,11 @@ CEERS-TNG50 data release is available:
 * **APT**         : CEERS ERS 1345
 ## Simulated data set
 
-* **Available for**: TNG50-1
+* **Available for**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 
 
 * **Redshifts**: z=3, z=4, z=5, z=6
 
-* **Stellar masses**: Larger than 10^9 solar masses
+* **Stellar masses**: Larger than log(M)>9 solar masses
 
 * **FoV**: Larger than 4 arcsec^2
 
@@ -50,9 +50,12 @@ CEERS-TNG50 data release is available:
    
    4 azimuths: a=(0, 90, 180, 270)
 
-* **Modeling**: Radiative transfer calculations using SKIRT v9 (Camps et al. 2020).
-   
+* **Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract).   
    An example of the SKIRT setup is provided in SKIRT_config.ski
+
+* **Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr).
+
+* **IMF** : [Chabrier (2003)](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract).
 
 * **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)
 

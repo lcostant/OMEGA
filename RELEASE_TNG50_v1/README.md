@@ -8,7 +8,7 @@ Galaxies are observed (imaging mode) with the NIRCam and MIRI instruments mounte
 
 The entire data release is made availble to the community, while the example galaxy ID XXX (z=3) is made available in this repository.
 
-A detailed description of the release can be found in the reference paper (Costantin et al. 2022, in prep.), to which citation is requested if you use this data.
+A detailed description of the release can be found in the reference paper (Costantin et al. 2022, in prep.), to which citation is requested if you use this data. *More information about this data release and the noiseless synthetic images can be found at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)*.
  
 ## Data releases
 

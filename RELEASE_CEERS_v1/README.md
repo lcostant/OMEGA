@@ -2,7 +2,9 @@
 
 ## Description
 
-This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
+This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. 
+
+Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
 
 The mirage tool (v2.2.1) was used to simulated imaging data which have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither - CEERS 10 pointing). Data simulated with mirage were run through the JWST calibration pipeline (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 

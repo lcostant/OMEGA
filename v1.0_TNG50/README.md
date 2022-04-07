@@ -1,8 +1,6 @@
 # NIRCam and MIRI synthetic images of high-redshift galaxies from the IllustrisTNG50
- 
-## Description 
 
-This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code, including the effects of dust attenuation and scattering. 
+This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50[^1][^2]. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT[^3] radiative transfer code (v9.0), including the effects of dust attenuation and scattering. 
 
 Galaxies are observed (imaging mode) with the NIRCam and MIRI instruments mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in all available filters. 
 
@@ -26,17 +24,17 @@ TNG50 data release is available:
 
 ## Additional information
 
-* **TNG50 version**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 
+* **TNG50 version**: TNG50-1[^1][^2]
 
    All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
 
-* **Modeling**: Radiative transfer calculations using SKIRT v9.0 ([Camps et al. 2020](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)).
+* **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0.   
    
    An example of the SKIRT setup is provided in the *SKIRT_config.ski* file.
 
-* **Stellar library**: MAPPINGS III library [Groves et al. 2008](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract) for young stellar particles (t<10 Myr) and [Bruzual & Charlot (2003)](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract) library for old stellar particles (t>10 Myr).
+* **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr).
 
-* **IMF**: [Chabrier (2003)](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract).
+* **Initial mass function**: Chabrier[^6].
 
 * **Number of galaxies**:
 
@@ -55,14 +53,21 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-*Author*: **Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
 
-*Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
+Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  
 ## Contact
 
-**Luca Costantin**: lcostantin@cab-csic-inta.es
+Luca Costantin: lcostantin@cab.inta-csic.es
 
 ## Licensing
 
 This release is distributed under GNU GPLv3.
+
+[^1]: [Pillepich et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3196](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
+[^2]: [Nelson et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3234](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)
+[^3]: [Camps et al. (2020), Astronomy and Computing, 31, 100381](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)
+[^4]: [Groves et al. (2008), The Astrophysical Journal Supplement Series, 176, 438](https://ui.adsabs.harvard.edu/abs/2008ApJS..176..438G/abstract)
+[^5]: [Bruzual & Charlot (2003), Monthly Notices of the Royal Astronomical Society, 344, 1000](https://ui.adsabs.harvard.edu/abs/2003MNRAS.344.1000B/abstract)
+[^6]: [Chabrier (2003), The Publications of the Astronomical Society of the Pacific, 115, 763](https://ui.adsabs.harvard.edu/abs/2003PASP..115..763C/abstract)

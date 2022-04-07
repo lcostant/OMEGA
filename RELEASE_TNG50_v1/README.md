@@ -45,7 +45,7 @@ TNG50 data release is available:
 * z=5: 113 galaxies
 
 * z=6: 39 galaxies
-### References
+## Publications
 
 Costantin L. et al. 2022, *in preparation*
 

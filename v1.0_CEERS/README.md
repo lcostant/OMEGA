@@ -1,8 +1,6 @@
 # Simulated NIRCam imaging data at CEERS depth for massive TNG50 galaxies at 3<z<6
 
-## Description
-
-This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT radiative transfer code (v9.0), including the effects of dust attenuation and scattering. 
+This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50[^1][^2]. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT[^3] radiative transfer code (v9.0), including the effects of dust attenuation and scattering. 
 
 Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in the F200W and F356W filters. 
 
@@ -43,7 +41,7 @@ CEERS-TNG50 data release is available:
 * **APT**: CEERS ERS 1345
 ## Simulated data set
 
-* **Available for**: TNG50-1 ([Pillepich et al. 2019](http://ui.adsabs.harvard.edu/abs/arXiv:1902.05553), [Dylan et al. 2019](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)). 
+* **Available for**: TNG50-1
 
 * **Redshifts**: z=3, z=4, z=5, z=6
 
@@ -119,3 +117,6 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 This release is distributed under GNU GPLv3.
 
+[^1]: [Pillepich et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3196](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
+[^2]: [Nelson et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3234](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)
+[^3]: [Camps et al. (2020), Astronomy and Computing, 31, 100381](https://ui.adsabs.harvard.edu/abs/2020A%26C....3100381C/abstract)

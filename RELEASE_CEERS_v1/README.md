@@ -6,6 +6,8 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 The mirage tool (v2.2.1) was used to simulated imaging data which have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither - CEERS 10 pointing). Data simulated with mirage were run through the JWST calibration pipeline (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 
+The entire data release is made availble to the community, while the example galaxy ID XXX (z=3) is made available in this repository.
+
 A detailed description of the release can be found in the reference paper (Costantin+2022, in prep.), to which citation is requested if you use this data. *More information about this data release and the noiseless synthetic images can be found at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)*.
 
 ## Data releases

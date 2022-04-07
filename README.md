@@ -42,5 +42,5 @@ Luca Costantin: lcostantin@cab.inta-csic.es
 **ΩMEGA** scripts are distributed under GNU GPLv3.
 
 
-[^1]: [Pillepich et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
-[^2]: [Dylan et al. (2019)](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)
+[^1]: [Pillepich et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3196](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3196P/abstract)
+[^2]: [Nelson et al. (2019), Monthly Notices of the Royal Astronomical Society, 490, 3234](https://ui.adsabs.harvard.edu/abs/2019MNRAS.490.3234N/abstract)

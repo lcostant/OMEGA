@@ -41,7 +41,7 @@ CEERS-TNG50 data release is available:
 * **APT**: CEERS ERS 1345
 ## Simulated data set
 
-* **Available for**: TNG50-1[^1][^2]
+* **TNG50 version**: TNG50-1[^1][^2]
 
 * **Redshifts**: z=3, z=4, z=5, z=6
 

@@ -10,7 +10,7 @@ This project provides a catalog of high-redhift galaxies taken from the Illustri
 
 The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulators for mimicking NIRCam and MIRI observations, respectively. In particular, this project provides NIRCam observations that mimic the observing strategy of the Cosmic Evolution Early Release Science survey ([CEERS](https://ceers.github.io); PI: S. Finkelstein).
 
-**A detailed description of the data products can be found in **Costantin et al. (in prep)**, to which citation is requested if you use these results.**
+*A detailed description of the data products can be found in **Costantin et al. (in prep)**, to which citation is requested if you use these results.*
 
 
 ## Data releases
@@ -31,9 +31,9 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-*Author*: **Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
 
-*Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
+Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
 
 ## Contact
 

@@ -65,7 +65,7 @@ CEERS-TNG50 data release is available:
 
 * **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr).
 
-* **IMF** : Chabrier[^6] initial mass function.
+* **Initial mass function**: Chabrier[^6].
 
 * **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)
 
@@ -105,9 +105,9 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-*Author*: **Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
 
-*Collaborators*: Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
+Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  
 ## Contact
 

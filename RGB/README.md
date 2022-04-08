@@ -12,7 +12,7 @@ LINK
 
 ## Additional information
 
-* TNG50 - NIRCam and MIRI resolved version (coming soon)
+* TNG50 - NIRCam and MIRI resolved version **(coming soon)**
 
 * NIRcam SW (28.4 GB of disk space)
 

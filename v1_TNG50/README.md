@@ -6,21 +6,22 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 Galaxies are observed (imaging mode) with the NIRCam and MIRI instruments mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in all available filters. 
 
-A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. The entire data release is made availble to the community, while the example galaxy ID XXX (z=3) is made available in this repository.
+A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. The entire data release is made availble to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
  
 ## Data releases
 
 TNG50 data release is available: 
 
-LINK **(coming soon)**
+**[OMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
 
-* **NIRCam SW**, with spatial resolution of 0.031 arcsec/px
+* **NIRCam SW**, with angular resolution of 0.031 arcsec/px (~28 GB of disk space)
 
-* **NIRCam LW**, with spatial resolution of 0.063 arcsec/px
+* **NIRCam LW**, with angular resolution of 0.063 arcsec/px (~9 GB of disk space)
 
-* **MIRI**, with spatial resolution of 0.110 arcsec/px
+* **MIRI**, with angular resolution of 0.110 arcsec/px (~2 GB of disk space)
 
-* **TNG50**, NIRCam and MIRI imaging with spatial resolution of 0.010 arcsec/px
+* **TNG50**, NIRCam and MIRI imaging with angular resolution of 0.010 arcsec/px **(coming soon)**
+
 
 ## Additional information
 

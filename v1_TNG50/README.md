@@ -12,7 +12,7 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 TNG50 data release is available: 
 
-![Download](https://img.shields.io/badge/version-v1.0-green)
+LINK **(coming soon)**
 
 * **NIRCam SW**, with spatial resolution of 0.031 arcsec/px
 

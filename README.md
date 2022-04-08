@@ -13,13 +13,9 @@ The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulato
 
 ## Data releases
 
-* TNG50 data release is available: 
+#### TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)**
 
-   LINK **(coming soon)**
-
-* CEERS-TNG50 data release is available: 
-
-   LINK **(coming soon)**
+#### CEERS-TNG50 data release is coming soon: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)**
 
 ## Publications
 

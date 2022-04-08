@@ -10,9 +10,7 @@ A detailed description of the release can be found in the reference paper (**Cos
  
 ## Data releases
 
-TNG50 data release is available: 
-
-**[OMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
+#### TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)**
 
 * **NIRCam SW**, with angular resolution of 0.031 arcsec/px (~28 GB of disk space)
 

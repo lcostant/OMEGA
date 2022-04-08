@@ -15,11 +15,11 @@ The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulato
 
 TNG50 data release is available: 
 
-![Data Release](https://img.shields.io/badge/version-v1.0-green)
+LINK **(coming soon)**
 
-CEERS data release is available: 
+CEERS-TNG50 data release is available: 
 
-![Data Release](https://img.shields.io/badge/version-v0.1-orange)
+LINK **(coming soon)**
 
 ## Publications
 

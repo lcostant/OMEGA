@@ -2,9 +2,7 @@
 
 ## Massive galaxies at redshift 3<z<6 from IllustrisTNG50
 
-This TNG50 data release (v1.0) provides a resolved version of TNG50 galaxies at angular resution of 0.010 arcsec/px. This version can be used to create synthetic RBG images of the galaxy (see example) using the python script in this directory.
-
-A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. One example galaxy is provided in this repository and can be used along with the python script *tgb_postage_stamps.py*, with some minor changes in the code.
+The TNG50 data release (v1.0) provides a resolved version of IllustrisTNG50 galaxies at angular resution of 0.010 arcsec/px. This version can be used to create synthetic RBG images of the galaxies using the python script *rgb_postage_stamps.py*. One example (galaxy ID XXX at redshift z=3) is provided in this repository.
 
 ## Data releases
 

@@ -1,4 +1,6 @@
-# Simulated NIRCam imaging data at CEERS depth for massive TNG50 galaxies at 3<z<6
+# Simulated NIRCam imaging data at CEERS depth 
+
+## Massive galaxies at redshift 3<z<6 from IllustisTNG50
 
 This data release is composed of synthetic images of about 25,000 galaxies from the IllustrisTNG50[^1][^2]. Galaxies are selected to be more massive than log(M)>9 solar masses at redshift z=3, z=4, z=5, and z=6. Synthetic images were created with the SKIRT[^3] radiative transfer code (v9.0), including the effects of dust attenuation and scattering. 
 
@@ -6,9 +8,7 @@ Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the J
 
 The [mirage](https://mirage-data-simulator.readthedocs.io/en/latest/) tool (v2.2.1) was used to simulated imaging data which have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither in the CEERS 10 pointing). Data simulated with mirage were run through the JWST [calibration pipeline](https://jwst-pipeline.readthedocs.io/en/latest/jwst/introduction.html) (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 
-The entire data release is made availble to the community, while the example galaxy ID XXX (z=3) is made available in this repository.
-
-A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data.
+A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. The entire data release is made availble to the community, while the example galaxy ID XXX (z=3) is made available in this repository.
 
 ## Data releases
 

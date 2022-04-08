@@ -4,11 +4,11 @@
 
 This TNG50 data release (v1.0) provides a resolved version of TNG50 galaxies at angular resution of 0.010 arcsec/px. This version can be used to create synthetic RBG images of the galaxy (see example) using the python script in this directory.
 
-The full set of synthetic images of high-redshift galaxies in TNG50 can be download at LINK (XX TB of disk space). One example galaxy is also provided in the main repository and can be used along the script in this directory, with some minor changes in the code. A detailed description of the dataset can be found in Costantin+2022, to which citation is requested if you use these products.
+A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. One example galaxy is provided in this repository and can be used along with the python script *tgb_postage_stamps.py*, with some minor changes in the code.
 
 ## Data releases
 
-The full set of synthetic images of high-redshift galaxies in TNG50 can be download at:
+The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be download at:
 
 LINK
 

@@ -14,7 +14,7 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 CEERS-TNG50 data release is available: 
 
-![Download](https://img.shields.io/badge/version-v1.0-green)
+LINK **(coming soon)**
 
 * **v1.0**: NIRCam F200W (0.030 arcsec/px), NIRCam F356W (0.060 arcsec/px)
 
@@ -67,7 +67,7 @@ CEERS-TNG50 data release is available:
 
 * **Initial mass function**: Chabrier[^6].
 
-* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [OMEGA webpage](https://www.lucacostantin.com/OMEGA)
+* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)
 
 * **Raw data**: 
 

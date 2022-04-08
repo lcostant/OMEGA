@@ -12,7 +12,7 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 ## Data releases
 
-CEERS-TNG50 data release is available: 
+### CEERS-TNG50 data release is available: 
 
 **[OMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
 

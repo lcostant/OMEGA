@@ -16,9 +16,13 @@ CEERS-TNG50 data release is available:
 
 **[OMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
 
-* **v1.0**: NIRCam F200W (0.030 arcsec/px), NIRCam F356W (0.060 arcsec/px) - **(coming soon)**
+* **v1.0**: NIRCam F200W (0.030 arcsec/px), NIRCam F356W (0.060 arcsec/px) 
 
-* **v1.1**: NIRCam F200W (0.015 arcsec/px), NIRCam F356W (0.030 arcsec/px) - **(coming soon)**
+   **(coming soon)**
+
+* **v1.1**: NIRCam F200W (0.015 arcsec/px), NIRCam F356W (0.030 arcsec/px)
+
+   **(coming soon)**
 
 ## Observational setup
 

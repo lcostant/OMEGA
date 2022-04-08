@@ -5,7 +5,7 @@ The TNG50 data release (v1.0) provides a resolved version of IllustrisTNG50 gala
 
 ## Example: 188916
 
-![plot](./188916_z3_i0_a0_rgb.png)
+![plot](./188916_i0_a0_z3_rgb.png)
 ## Data releases
 
 The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be download at:

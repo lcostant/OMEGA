@@ -25,7 +25,7 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 * **TNG50 version**: TNG50-1[^1][^2]
 
-   All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/)
+   All physical parameters associated with the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/)
 
 * **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0  
    

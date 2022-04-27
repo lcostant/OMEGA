@@ -14,7 +14,7 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 #### CEERS-TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
 
-* **v1.0**: NIRCam F200W (0.030 arcsec/px), NIRCam F356W (0.060 arcsec/px) 
+* **v1.0**: NIRCam F200W (0.031 arcsec/px), NIRCam F356W (0.063 arcsec/px) 
 
    **(coming soon)**
 
@@ -61,21 +61,21 @@ A detailed description of the release can be found in the reference paper (**Cos
 
    z=6: 39 galaxies
 
-* **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0.   
+* **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0
    
    An example of the SKIRT setup is provided in SKIRT_config.ski
 
-* **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr).
+* **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr)
 
-* **Initial mass function**: Chabrier[^6].
+* **Initial mass function**: Chabrier[^6]
 
 * **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)
 
 * **Raw data**: 
 
-   The raw data (_uncal) produced with mirage can be available upon request.
+   The raw data (_uncal) produced with mirage can be available upon request
    
-   The calibration data products (_rate, _cal, _i2d) can be available upon request.
+   The calibration data products (_rate, _cal, _i2d) can be available upon request
 
 * **Extensions**: 
 
@@ -107,7 +107,7 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CSIC-INTA, Madrid, Spain)
 
 Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  

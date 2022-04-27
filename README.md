@@ -6,7 +6,7 @@ This is **ΩMEGA** (**Ω**rigin of the **M**orphological **E**volution of **GA**
 
 ## Project description
 
-This project provides a catalog of high-redhift galaxies taken from the Illustris TNG50 suite of cosmological simulations[^1][^2]. For all galaxies at redshift 3<z<6 and more massive than log(M)>9 solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
+This project provides a catalog of high-redshift galaxies taken from the Illustris TNG50 suite of cosmological simulations[^1][^2]. For all galaxies at redshift 3<z<6 and more massive than log(M)>9 solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
 
 The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulators for mimicking NIRCam and MIRI observations, respectively. In particular, this project provides NIRCam observations that mimic the observing strategy of the Cosmic Evolution Early Release Science survey ([CEERS](https://ceers.github.io); PI: S. Finkelstein).
 

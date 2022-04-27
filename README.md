@@ -25,7 +25,7 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CSIC-INTA, Spain)
 
 Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
 

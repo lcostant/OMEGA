@@ -10,7 +10,7 @@ The TNG50 data release (v1.0) provides a resolved version of IllustrisTNG50 gala
 
 The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be download at:
 
-LINK **(coming soon)**
+**(coming soon)**
 
 ## Additional information
 

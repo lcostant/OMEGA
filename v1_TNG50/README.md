@@ -25,15 +25,15 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 * **TNG50 version**: TNG50-1[^1][^2]
 
-   All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/).
+   All physical parameters associated to the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/)
 
-* **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0.   
+* **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0  
    
-   An example of the SKIRT setup is provided in the *SKIRT_config.ski* file.
+   An example of the SKIRT setup is provided in the *SKIRT_config.ski* file
 
-* **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr).
+* **Stellar library**: MAPPINGS III library[^4] for young stellar particles (t<10 Myr) and Bruzual & Charlot library[^5] for old stellar particles (t>10 Myr)
 
-* **Initial mass function**: Chabrier[^6].
+* **Initial mass function**: Chabrier[^6]
 
 * **Number of galaxies**:
 
@@ -52,7 +52,7 @@ Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 
-**Luca Costantin** (Centro de Astrobiología, CAB/CSIC-INTA, Spain)
+**Luca Costantin** (Centro de Astrobiología, CSIC-INTA, Madrid, Spain)
 
 Pablo G. Pérez-González, Marc Huertas-Company, Jesús Vega-Ferrero
  

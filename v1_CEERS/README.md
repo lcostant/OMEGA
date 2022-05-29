@@ -12,19 +12,11 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 ## Data releases
 
-#### CEERS-TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)** 
+#### CEERS-TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA.html#four)** 
 
 * **v1.0**: NIRCam F200W (0.031 arcsec/px), NIRCam F356W (0.063 arcsec/px) 
 
-   **F200W (coming soon)**
-
-   **F356W (coming soon)**
-
 * **v1.1**: NIRCam F200W (0.015 arcsec/px), NIRCam F356W (0.030 arcsec/px)
-
-   **F200W (coming soon)**
-
-   **F356W (coming soon)**
 ## Observational setup
 
 * **Instrument**: NIRCam

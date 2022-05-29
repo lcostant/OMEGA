@@ -1,0 +1,2192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A SKIRT parameter file © Astronomical Observatory, Ghent University -->
+<skirt-simulation-hierarchy type="MonteCarloSimulation" format="9" producer="SKIRT v9.0 (git a3abee9 built on 19/07/2021 at 13:47:46)" time="2021-07-28T21:24:10.735">
+    <MonteCarloSimulation userLevel="Regular" simulationMode="DustEmissionWithSelfAbsorption" numPackets="1e8">
+        <random type="Random">
+            <Random seed="0"/>
+        </random>
+        <units type="Units">
+            <ExtragalacticUnits fluxOutputStyle="Frequency"/>
+        </units>
+        <cosmology type="Cosmology">
+            <FlatUniverseCosmology redshift="3" reducedHubbleConstant="0.6774" matterDensityFraction="0.307"/>
+        </cosmology>
+        <sourceSystem type="SourceSystem">
+            <SourceSystem minWavelength="0.08 micron" maxWavelength="1000 micron" wavelengths="0.55 micron" sourceBias="0.5">
+                <sources type="Source">
+                    <ParticleSource filename="star_old.dat" importVelocity="false" importVelocityDispersion="false" useColumns="" sourceWeight="1" wavelengthBias="0.5">
+                        <smoothingKernel type="SmoothingKernel">
+                            <CubicSplineSmoothingKernel/>
+                        </smoothingKernel>
+                        <sedFamily type="SEDFamily">
+                            <BruzualCharlotSEDFamily imf="Chabrier" resolution="High"/>
+                        </sedFamily>
+                        <wavelengthBiasDistribution type="WavelengthDistribution">
+                            <LogWavelengthDistribution minWavelength="0.0001 micron" maxWavelength="1e6 micron"/>
+                        </wavelengthBiasDistribution>
+                    </ParticleSource>
+                    <ParticleSource filename="star_young.dat" importVelocity="false" importVelocityDispersion="false" useColumns="" sourceWeight="1" wavelengthBias="0.5">
+                        <smoothingKernel type="SmoothingKernel">
+                            <CubicSplineSmoothingKernel/>
+                        </smoothingKernel>
+                        <sedFamily type="SEDFamily">
+                            <MappingsSEDFamily/>
+                        </sedFamily>
+                        <wavelengthBiasDistribution type="WavelengthDistribution">
+                            <LogWavelengthDistribution minWavelength="0.0001 micron" maxWavelength="1e6 micron"/>
+                        </wavelengthBiasDistribution>
+                    </ParticleSource>
+                </sources>
+            </SourceSystem>
+        </sourceSystem>
+        <mediumSystem type="MediumSystem">
+            <MediumSystem numDensitySamples="100">
+                <photonPacketOptions type="PhotonPacketOptions">
+                    <PhotonPacketOptions forceScattering="true" minWeightReduction="1e4" minScattEvents="0" pathLengthBias="0.5"/>
+                </photonPacketOptions>
+                <dustEmissionOptions type="DustEmissionOptions">
+                    <DustEmissionOptions dustEmissionType="Stochastic" includeHeatingByCMB="false" storeEmissionRadiationField="false" secondaryPacketsMultiplier="1" spatialBias="0.5" wavelengthBias="0.5">
+                        <cellLibrary type="SpatialCellLibrary">
+                            <FieldStrengthCellLibrary numFieldStrengths="1000"/>
+                        </cellLibrary>
+                        <radiationFieldWLG type="DisjointWavelengthGrid">
+                            <LogWavelengthGrid minWavelength="0.08 micron" maxWavelength="10 micron" numWavelengths="40"/>
+                        </radiationFieldWLG>
+                        <dustEmissionWLG type="DisjointWavelengthGrid">
+                            <LogWavelengthGrid minWavelength="0.4 micron" maxWavelength="1000 micron" numWavelengths="200"/>
+                        </dustEmissionWLG>
+                        <wavelengthBiasDistribution type="WavelengthDistribution">
+                            <LogWavelengthDistribution minWavelength="0.0001 micron" maxWavelength="1e6 micron"/>
+                        </wavelengthBiasDistribution>
+                    </DustEmissionOptions>
+                </dustEmissionOptions>
+                <dustSelfAbsorptionOptions type="DustSelfAbsorptionOptions">
+                    <DustSelfAbsorptionOptions minIterations="1" maxIterations="10" maxFractionOfPrimary="0.1" maxFractionOfPrevious="0.1" iterationPacketsMultiplier="1"/>
+                </dustSelfAbsorptionOptions>
+                <dynamicStateOptions type="DynamicStateOptions">
+                    <DynamicStateOptions hasDynamicState="false" minIterations="1" maxIterations="10" iterationPacketsMultiplier="1"/>
+                </dynamicStateOptions>
+                <media type="Medium">
+                    <VoronoiMeshMedium filename="gas_sf.dat" minX="-10848.88042 pc" maxX="10848.88042 pc" minY="-10848.88042 pc" maxY="10848.88042 pc" minZ="-10848.88042 pc" maxZ="10848.88042 pc" massType="Mass" massFraction="0.3098907089" importMetallicity="true" importTemperature="false" maxTemperature="0 K" importVelocity="false" importMagneticField="false" importVariableMixParams="false" useColumns="">
+                        <materialMix type="MaterialMix">
+                            <ZubkoDustMix numSilicateSizes="10" numGraphiteSizes="10" numPAHSizes="10"/>
+                        </materialMix>
+                    </VoronoiMeshMedium>
+                    <VoronoiMeshMedium filename="gas_nosf.dat" minX="-10848.88042 pc" maxX="10848.88042 pc" minY="-10848.88042 pc" maxY="10848.88042 pc" minZ="-10848.88042 pc" maxZ="10848.88042 pc" massType="Mass" massFraction="0.3098907089" importMetallicity="true" importTemperature="true" maxTemperature="8000 K" importVelocity="false" importMagneticField="false" importVariableMixParams="false" useColumns="">
+                        <materialMix type="MaterialMix">
+                            <ZubkoDustMix numSilicateSizes="10" numGraphiteSizes="10" numPAHSizes="10"/>
+                        </materialMix>
+                    </VoronoiMeshMedium>
+                </media>
+                <grid type="SpatialGrid">
+                    <PolicyTreeSpatialGrid minX="-10848.88042 pc" maxX="10848.88042 pc" minY="-10848.88042 pc" maxY="10848.88042 pc" minZ="-10848.88042 pc" maxZ="10848.88042 pc" treeType="OctTree">
+                        <policy type="TreePolicy">
+                            <DensityTreePolicy minLevel="3" maxLevel="11" maxDustFraction="1e-6" maxDustOpticalDepth="0" wavelength="0.55 micron" maxDustDensityDispersion="0" maxElectronFraction="1e-6" maxGasFraction="1e-6"/>
+                        </policy>
+                    </PolicyTreeSpatialGrid>
+                </grid>
+            </MediumSystem>
+        </mediumSystem>
+        <instrumentSystem type="InstrumentSystem">
+            <InstrumentSystem>
+                <defaultWavelengthGrid type="WavelengthGrid">
+                    <NestedLogWavelengthGrid minWavelengthBaseGrid="0.32 micron" maxWavelengthBaseGrid="4000 micron" numWavelengthsBaseGrid="251" minWavelengthSubGrid="0.32 micron" maxWavelengthSubGrid="12 micron" numWavelengthsSubGrid="4001"/>
+                </defaultWavelengthGrid>
+                <instruments type="Instrument">
+                    <FullInstrument instrumentName="i0_a0_NIRSpec" distance="0 Mpc" inclination="0 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21303.2561 pc" numPixelsX="27" centerX="0 pc" fieldOfViewY="21303.2561 pc" numPixelsY="27" centerY="0 pc" recordComponents="true" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <NestedLogWavelengthGrid minWavelengthBaseGrid="0.32 micron" maxWavelengthBaseGrid="4000 micron" numWavelengthsBaseGrid="251" minWavelengthSubGrid="0.32 micron" maxWavelengthSubGrid="12 micron" numWavelengthsSubGrid="4001"/>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a0_broad_skirt" distance="0 Mpc" inclination="0 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a90_broad_skirt" distance="0 Mpc" inclination="0 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a180_broad_skirt" distance="0 Mpc" inclination="0 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a270_broad_skirt" distance="0 Mpc" inclination="0 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a0_broad_skirt" distance="0 Mpc" inclination="45 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a90_broad_skirt" distance="0 Mpc" inclination="45 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a180_broad_skirt" distance="0 Mpc" inclination="45 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a270_broad_skirt" distance="0 Mpc" inclination="45 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a0_broad_skirt" distance="0 Mpc" inclination="90 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a90_broad_skirt" distance="0 Mpc" inclination="90 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a180_broad_skirt" distance="0 Mpc" inclination="90 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a270_broad_skirt" distance="0 Mpc" inclination="90 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a0_broad_skirt" distance="0 Mpc" inclination="135 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a90_broad_skirt" distance="0 Mpc" inclination="135 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a180_broad_skirt" distance="0 Mpc" inclination="135 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a270_broad_skirt" distance="0 Mpc" inclination="135 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a0_broad_skirt" distance="0 Mpc" inclination="180 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a90_broad_skirt" distance="0 Mpc" inclination="180 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a180_broad_skirt" distance="0 Mpc" inclination="180 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a270_broad_skirt" distance="0 Mpc" inclination="180 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21382.15705 pc" numPixelsX="271" centerX="0 pc" fieldOfViewY="21382.15705 pc" numPixelsY="271" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a0_broad_NIRCam_short" distance="0 Mpc" inclination="0 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a90_broad_NIRCam_short" distance="0 Mpc" inclination="0 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a180_broad_NIRCam_short" distance="0 Mpc" inclination="0 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a270_broad_NIRCam_short" distance="0 Mpc" inclination="0 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a0_broad_NIRCam_short" distance="0 Mpc" inclination="45 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a90_broad_NIRCam_short" distance="0 Mpc" inclination="45 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a180_broad_NIRCam_short" distance="0 Mpc" inclination="45 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a270_broad_NIRCam_short" distance="0 Mpc" inclination="45 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a0_broad_NIRCam_short" distance="0 Mpc" inclination="90 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a90_broad_NIRCam_short" distance="0 Mpc" inclination="90 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a180_broad_NIRCam_short" distance="0 Mpc" inclination="90 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a270_broad_NIRCam_short" distance="0 Mpc" inclination="90 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a0_broad_NIRCam_short" distance="0 Mpc" inclination="135 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a90_broad_NIRCam_short" distance="0 Mpc" inclination="135 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a180_broad_NIRCam_short" distance="0 Mpc" inclination="135 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a270_broad_NIRCam_short" distance="0 Mpc" inclination="135 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a0_broad_NIRCam_short" distance="0 Mpc" inclination="180 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a90_broad_NIRCam_short" distance="0 Mpc" inclination="180 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a180_broad_NIRCam_short" distance="0 Mpc" inclination="180 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a270_broad_NIRCam_short" distance="0 Mpc" inclination="180 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21279.58582 pc" numPixelsX="87" centerX="0 pc" fieldOfViewY="21279.58582 pc" numPixelsY="87" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F070W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F090W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F115W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F140M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F150W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F162M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F164N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F182M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F187N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F200W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F210M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F212N.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a0_broad_NIRCam_long" distance="0 Mpc" inclination="0 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a90_broad_NIRCam_long" distance="0 Mpc" inclination="0 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a180_broad_NIRCam_long" distance="0 Mpc" inclination="0 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a270_broad_NIRCam_long" distance="0 Mpc" inclination="0 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a0_broad_NIRCam_long" distance="0 Mpc" inclination="45 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a90_broad_NIRCam_long" distance="0 Mpc" inclination="45 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a180_broad_NIRCam_long" distance="0 Mpc" inclination="45 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a270_broad_NIRCam_long" distance="0 Mpc" inclination="45 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a0_broad_NIRCam_long" distance="0 Mpc" inclination="90 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a90_broad_NIRCam_long" distance="0 Mpc" inclination="90 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a180_broad_NIRCam_long" distance="0 Mpc" inclination="90 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a270_broad_NIRCam_long" distance="0 Mpc" inclination="90 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a0_broad_NIRCam_long" distance="0 Mpc" inclination="135 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a90_broad_NIRCam_long" distance="0 Mpc" inclination="135 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a180_broad_NIRCam_long" distance="0 Mpc" inclination="135 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a270_broad_NIRCam_long" distance="0 Mpc" inclination="135 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a0_broad_NIRCam_long" distance="0 Mpc" inclination="180 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a90_broad_NIRCam_long" distance="0 Mpc" inclination="180 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a180_broad_NIRCam_long" distance="0 Mpc" inclination="180 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a270_broad_NIRCam_long" distance="0 Mpc" inclination="180 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21374.26696 pc" numPixelsX="43" centerX="0 pc" fieldOfViewY="21374.26696 pc" numPixelsY="43" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_NIRCam_F250M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F277W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F300M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F323N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F335M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F356W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F360M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F405N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F410M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F430M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F444W.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F460M.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F466N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F470N.par"/>
+                                    <FileBand filename="filters/JWST_NIRCam_F480M.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a0_broad_MIRI" distance="0 Mpc" inclination="0 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a90_broad_MIRI" distance="0 Mpc" inclination="0 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a180_broad_MIRI" distance="0 Mpc" inclination="0 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i0_a270_broad_MIRI" distance="0 Mpc" inclination="0 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a0_broad_MIRI" distance="0 Mpc" inclination="45 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a90_broad_MIRI" distance="0 Mpc" inclination="45 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a180_broad_MIRI" distance="0 Mpc" inclination="45 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i45_a270_broad_MIRI" distance="0 Mpc" inclination="45 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a0_broad_MIRI" distance="0 Mpc" inclination="90 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a90_broad_MIRI" distance="0 Mpc" inclination="90 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a180_broad_MIRI" distance="0 Mpc" inclination="90 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i90_a270_broad_MIRI" distance="0 Mpc" inclination="90 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a0_broad_MIRI" distance="0 Mpc" inclination="135 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a90_broad_MIRI" distance="0 Mpc" inclination="135 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a180_broad_MIRI" distance="0 Mpc" inclination="135 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i135_a270_broad_MIRI" distance="0 Mpc" inclination="135 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a0_broad_MIRI" distance="0 Mpc" inclination="180 deg" azimuth="0 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a90_broad_MIRI" distance="0 Mpc" inclination="180 deg" azimuth="90 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a180_broad_MIRI" distance="0 Mpc" inclination="180 deg" azimuth="180 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                    <FullInstrument instrumentName="i180_a270_broad_MIRI" distance="0 Mpc" inclination="180 deg" azimuth="270 deg" roll="0 deg" fieldOfViewX="21697.76085 pc" numPixelsX="25" centerX="0 pc" fieldOfViewY="21697.76085 pc" numPixelsY="25" centerY="0 pc" recordComponents="false" numScatteringLevels="0" recordPolarization="false" recordStatistics="true">
+                        <wavelengthGrid type="WavelengthGrid">
+                            <ConfigurableBandWavelengthGrid>
+                                <bands type="Band">
+                                    <FileBand filename="filters/JWST_MIRI_F560W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F770W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1000W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1130W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1280W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1500W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F1800W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2100W.par"/>
+                                    <FileBand filename="filters/JWST_MIRI_F2550W.par"/>
+                                </bands>
+                            </ConfigurableBandWavelengthGrid>
+                        </wavelengthGrid>
+                    </FullInstrument>
+                </instruments>
+            </InstrumentSystem>
+        </instrumentSystem>
+        <probeSystem type="ProbeSystem">
+            <ProbeSystem>
+                <probes type="Probe">
+                    <SpatialGridConvergenceProbe probeName="omega" wavelength="0.55 micron"/>
+                </probes>
+            </ProbeSystem>
+        </probeSystem>
+    </MonteCarloSimulation>
+</skirt-simulation-hierarchy>

@@ -16,12 +16,15 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 * **v1.0**: NIRCam F200W (0.031 arcsec/px), NIRCam F356W (0.063 arcsec/px) 
 
-   **(coming soon)**
+   **F200W (coming soon)**
+
+   **F356W (coming soon)**
 
 * **v1.1**: NIRCam F200W (0.015 arcsec/px), NIRCam F356W (0.030 arcsec/px)
 
-   **(coming soon)**
+   **F200W (coming soon)**
 
+   **F356W (coming soon)**
 ## Observational setup
 
 * **Instrument**: NIRCam

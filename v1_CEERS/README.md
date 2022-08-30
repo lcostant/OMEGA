@@ -8,7 +8,7 @@ Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the J
 
 The [mirage](https://mirage-data-simulator.readthedocs.io/en/latest/) tool (v2.2.1) was used to simulate imaging data that have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither in the CEERS 10 pointing). Data simulated with mirage were run through the JWST [calibration pipeline](https://jwst-pipeline.readthedocs.io/en/latest/jwst/introduction.html) (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 
-A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
+A detailed description of the release can be found in the reference paper ([Costantin et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
 
 ## Data releases
 
@@ -96,9 +96,9 @@ A detailed description of the release can be found in the reference paper (**Cos
 
 ## Publications
 
-Costantin L. et al. 2022, *in preparation*
+* [Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
-Vega-Ferrero J. et al. 2022, *in preparation*
+* Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 

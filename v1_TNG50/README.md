@@ -46,9 +46,9 @@ A detailed description of the release can be found in the reference paper ([Cost
    z=6: 39 galaxies
 ## Publications
 
-[Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
+* [Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
-Vega-Ferrero J. et al. 2022, *in preparation*
+* Vega-Ferrero J. et al. 2022, *in preparation*
 
 ## Authors
 

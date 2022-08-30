@@ -6,7 +6,7 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 Galaxies are observed (imaging mode) with the NIRCam and MIRI instruments mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in all available filters. 
 
-A detailed description of the release can be found in the reference paper (**Costantin et al. 2022**, *in preparation*), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
+A detailed description of the release can be found in the reference paper ([Costantin et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
  
 ## Data releases
 
@@ -46,7 +46,7 @@ A detailed description of the release can be found in the reference paper (**Cos
    z=6: 39 galaxies
 ## Publications
 
-Costantin L. et al. 2022, *in preparation*
+[Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
 Vega-Ferrero J. et al. 2022, *in preparation*
 

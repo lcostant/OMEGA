@@ -98,8 +98,6 @@ A detailed description of the release can be found in the reference paper ([Cost
 
 * [Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
-* Vega-Ferrero J. et al. 2022, *in preparation*
-
 ## Authors
 
 **Luca Costantin** (Centro de Astrobiología, CSIC-INTA, Madrid, Spain)

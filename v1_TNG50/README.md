@@ -6,26 +6,26 @@ This data release is composed of synthetic images of about 25,000 galaxies from 
 
 Galaxies are observed (imaging mode) with the NIRCam and MIRI instruments mounted on the James Webb Space Telescope. In particular, each galaxy is observed under 20 configurations (5 inclinations and 4 azimuths) in all available filters. 
 
-A detailed description of the release can be found in the reference paper ([Costantin et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
+A detailed description of the release can be found in the reference paper ([Costantin et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
  
 ## Data releases
 
-#### TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)**
+#### TNG50 data release is available: **[TNG project webpage](https://www.tng-project.org/costantin22)**
 
-* **NIRCam SW**, with angular resolution of 0.031 arcsec/px (~28 GB of disk space)
+* **NIRCam SW**, with angular resolution of 0.031 arcsec/px
 
-* **NIRCam LW**, with angular resolution of 0.063 arcsec/px (~9 GB of disk space)
+* **NIRCam LW**, with angular resolution of 0.063 arcsec/px
 
-* **MIRI**, with angular resolution of 0.110 arcsec/px (~2 GB of disk space)
+* **MIRI**, with angular resolution of 0.110 arcsec/px
 
-* **TNG50**, NIRCam and MIRI imaging with angular resolution of 0.010 arcsec/px **(coming soon)**
+* **TNG50**, NIRCam and MIRI imaging with angular resolution of 0.010 arcsec/px
 
 
 ## Additional information
 
 * **TNG50 version**: TNG50-1[^1][^2]
 
-   All physical parameters associated with the galaxies of this release can be found at [IllustrisTNG webpage](https://www.tng-project.org/data/docs/specifications/)
+   All physical parameters associated with the galaxies of this release can be found at [TNG project webpage](https://www.tng-project.org/data/docs/specifications/)
 
 * **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0  
    
@@ -46,7 +46,7 @@ A detailed description of the release can be found in the reference paper ([Cost
    z=6: 39 galaxies
 ## Publications
 
-* [Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
+* [Costantin L. et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
 ## Authors
 

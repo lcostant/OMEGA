@@ -10,14 +10,4 @@ The TNG50 data release (v1.0) provides a resolved version of IllustrisTNG50 gala
 
 The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be downloaded at:
 
-**(coming soon)**
-
-## Additional information
-
-* TNG50 - NIRCam and MIRI resolved version **(coming soon)**
-
-* NIRcam SW (28.4 GB of disk space)
-
-* NIRcam LW  (9.3 GB of disk space)
-
-* MIRI (2 GB of disk space)
+**[TNG project webpage](https://www.tng-project.org/costantin22)**

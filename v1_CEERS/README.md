@@ -8,11 +8,11 @@ Galaxies are observed (imaging mode) with the NIRCam instrument mounted on the J
 
 The [mirage](https://mirage-data-simulator.readthedocs.io/en/latest/) tool (v2.2.1) was used to simulate imaging data that have the NIRCam instrumental noise effects and the CEERS observing strategy (3-point dither in the CEERS 10 pointing). Data simulated with mirage were run through the JWST [calibration pipeline](https://jwst-pipeline.readthedocs.io/en/latest/jwst/introduction.html) (v1.4.6), mimicking the data reduction strategy to be used for in-flight data. An additional step to homogenize the background (removing gradients and correcting for some detector-level patterns) was needed before drizzling the final images. 
 
-A detailed description of the release can be found in the reference paper ([Costantin et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
+A detailed description of the release can be found in the reference paper ([Costantin et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)), to which citation is requested if you use this data. The entire data release is made available to the community, while the example galaxy ID 188916 (z=3) is made available in this repository.
 
 ## Data releases
 
-#### CEERS-TNG50 data release is available: **[ΩMEGA webpage](https://www.lucacostantin.com/OMEGA.html#four)** 
+#### CEERS-TNG50 data release is available: **[TNG project webpage](https://www.tng-project.org/costantin22)** 
 
 * **v1.0**: NIRCam F200W (0.031 arcsec/px), NIRCam F356W (0.063 arcsec/px) 
 
@@ -64,7 +64,7 @@ A detailed description of the release can be found in the reference paper ([Cost
 
 * **Initial mass function**: Chabrier[^6]
 
-* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [ΩMEGA webpage](https://www.lucacostantin.com/OMEGA)
+* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [TNG project webpage](https://www.tng-project.org/costantin22)
 
 * **Raw data**: 
 
@@ -96,7 +96,7 @@ A detailed description of the release can be found in the reference paper ([Cost
 
 ## Publications
 
-* [Costantin L. et al. 2022b](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
+* [Costantin L. et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
 
 ## Authors
 

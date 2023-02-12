@@ -8,6 +8,4 @@ The TNG50 data release (v1.0) provides a resolved version of IllustrisTNG50 gala
 ![plot](./188916_i0_a0_z3_rgb.png)
 ## Data releases
 
-The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be downloaded at:
-
-**[TNG project webpage](https://www.tng-project.org/costantin22)**
+The full set of synthetic images of high-redshift galaxies in IllustrisTNG50 can be downloaded at: **[TNG project webpage](https://www.tng-project.org/costantin22)**

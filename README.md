@@ -13,9 +13,9 @@ The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulato
 
 ## Data releases
 
-* **TNG50 data release is available:** [TNG webpage](https://www.tng-project.org/costantin22)
+* **TNG50 data release [is available](https://www.tng-project.org/costantin22)**
 
-* **CEERS-TNG50 data release is available:** [TNG webpage](https://www.tng-project.org/costantin22)
+* **CEERS-TNG50 data release [is available](https://www.tng-project.org/costantin22)**
 
 ## Publications
 

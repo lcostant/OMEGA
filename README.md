@@ -8,18 +8,20 @@ This is **ΩMEGA** (**Ω**rigin of the **M**orphological **E**volution of **GA**
 
 This project provides a catalog of high-redshift galaxies taken from the Illustris TNG50 suite of cosmological simulations[^1][^2]. For all galaxies at redshift 3<z<6 and more massive than log(M)>9 solar masses, the catalog is composed of synthetic images in all filters available on the NIRCam and MIRI instruments of the James Webb Space Telescope. 
 
-The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulators for mimicking NIRCam and MIRI observations, respectively. In particular, this project provides NIRCam observations that mimic the observing strategy of the Cosmic Evolution Early Release Science survey ([CEERS](https://ceers.github.io); PI: S. Finkelstein).
+The noiseless synthetic images can be processed with MIRAGE and MIRISIM simulators for mimicking NIRCam and MIRI observations, respectively. In particular, this project provides NIRCam observations that mimic the observing strategy of the Cosmic Evolution Early Release Science survey ([CEERS](https://ceers.github.io); PI: S. Finkelstein) and the corresponding morphological catalogs.
 
 
 ## Data releases
 
-#### TNG50 data release is available: **[TNG project webpage](https://www.tng-project.org/costantin22)**
+* **TNG50 data release is available:** [TNG webpage](https://www.tng-project.org/costantin22)
 
-#### CEERS-TNG50 data release is coming soon: **[TNG project webpage](https://www.tng-project.org/costantin22)**
+* **CEERS-TNG50 data release is available:** [TNG webpage](https://www.tng-project.org/costantin22)
 
 ## Publications
 
 * [Costantin L. et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
+
+* [Vega-Ferrero J. et al. 2023](https://ui.adsabs.harvard.edu/abs/2023arXiv230207277V/abstract)
 
 ## Authors
 

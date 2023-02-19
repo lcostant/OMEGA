@@ -10,7 +10,7 @@ A detailed description of the release can be found in the reference paper ([Cost
  
 ## Data releases
 
-#### TNG50 data release is available: **[TNG project webpage](https://www.tng-project.org/costantin22)**
+#### TNG50 data release [is available](https://www.tng-project.org/costantin22)
 
 * **NIRCam SW**, with angular resolution of 0.031 arcsec/px
 
@@ -24,8 +24,6 @@ A detailed description of the release can be found in the reference paper ([Cost
 ## Additional information
 
 * **TNG50 version**: TNG50-1[^1][^2]
-
-   All physical parameters associated with the galaxies of this release can be found at [TNG project webpage](https://www.tng-project.org/data/docs/specifications/)
 
 * **Modeling**: Radiative transfer calculations using SKIRT[^3] v9.0  
    
@@ -47,6 +45,8 @@ A detailed description of the release can be found in the reference paper ([Cost
 ## Publications
 
 * [Costantin L. et al. 2023](https://ui.adsabs.harvard.edu/abs/2022arXiv220800007C/abstract)
+
+* [Vega-Ferrero J. et al. 2023](https://ui.adsabs.harvard.edu/abs/2023arXiv230207277V/abstract)
 
 ## Authors
 

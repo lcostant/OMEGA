@@ -12,7 +12,7 @@ A detailed description of the release can be found in the reference paper ([Cost
 
 ## Data releases
 
-#### CEERS-TNG50 data release is available: **[TNG project webpage](https://www.tng-project.org/costantin22)** 
+#### CEERS-TNG50 data release [is available](https://www.tng-project.org/costantin22) 
 
 * **v1.0**: NIRCam F200W (0.031 arcsec/px), NIRCam F356W (0.063 arcsec/px) 
 
@@ -64,7 +64,7 @@ A detailed description of the release can be found in the reference paper ([Cost
 
 * **Initial mass function**: Chabrier[^6]
 
-* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters are available at the [TNG project webpage](https://www.tng-project.org/costantin22)
+* **Noiseless dataset**: The noiseless synthetic images in all NIRCam (and MIRI) filters [are available](https://www.tng-project.org/costantin22)
 
 * **Raw data**: 
 
